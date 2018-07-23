@@ -51,10 +51,10 @@ def get_loaders_cifar(nb_labelled, dataset, batch_size):
     trainset_l.train_labels = np.array(trainset_l.train_labels)       
 
     num_noise_label = int(nb_labelled*noise_rat)
-    print num_noise_label
-    print trainset_l.train_labels[0:num_noise_label]
+    print (num_noise_label)
+    print (trainset_l.train_labels[0:num_noise_label])
     trainset_l.train_labels[0:num_noise_label] = np.random.randint(nb_class, size=num_noise_label)
-    print trainset_l.train_labels[0:num_noise_label]
+    print (trainset_l.train_labels[0:num_noise_label])
     
     print (trainset_l.train_data.shape, len(trainset_l.train_labels))
     trainloader_l = DataLoader(trainset_l, batch_size=batch_size, shuffle=True, num_workers=1)
