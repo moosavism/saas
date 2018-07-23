@@ -12,7 +12,7 @@ from resnet import ResNet18
 	
 nll_loss = nn.NLLLoss(size_average=True) 
 
-def train_on_noisy(noise_rat=1.0, num_epochs=35, nb_labelled = 50000, batch_size = 100, \
+def train_on_noisy(noise_rat=1.0, num_epochs=30, nb_labelled = 50000, batch_size = 100, \
 	wd=0.0, lr = 0.1, dataset = 'cifar10'):
 
 	net_w = ResNet18().cuda() 
