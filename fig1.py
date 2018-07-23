@@ -2,22 +2,25 @@ import numpy as np
 from matplotlib import pyplot as plt
 plt.close("all")
 
-
-  
-  
-
-
 # plot losses_all
 colors = ['blue','green','red','cyan','magenta']
-corruptions = [0.0, 0.25, 0.5, 0.75, 1.0]
+
+file_name = "training_losses.npy"
+logs = np.save('file_name', logs)
+
+font = 15
+linew = 3
 
 fig = plt.figure()
 ax = plt.subplot(111)
 legends = []
 last = 30
 for i, loss in enumerate(loss_mean):
-    ax.errorbar(np.arange(0, last), np.array(loss[0:last]),  loss_std[i][0:last], linewidth=linew, color=colors[i])
-    plt.fill_between(np.arange(0, last), np.array(loss[0:last])-loss_std[i][0:last], np.array(loss[0:last])+loss_std[i][0:last], color=colors[i], alpha=0.1)
+    ax.errorbar(np.arange(0, last), np.array(loss[0:last]),loss_std[i][0:last], \
+                linewidth=linew, color=colors[i])
+    plt.fill_between(np.arange(0, last), np.array(loss[0:last])-\
+                     loss_std[i][0:last], np.array(loss[0:last])+\
+                     loss_std[i][0:last], color=colors[i], alpha=0.1)
     plt.ylabel('Training loss', fontsize=font)
     plt.xlabel('Epoch', fontsize=font)
     legends.append('Label corruption=%.2f' % corruptions[i])

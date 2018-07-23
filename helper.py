@@ -73,7 +73,7 @@ def get_loaders_cifar(nb_labelled, dataset, batch_size, noise_rat):
     return trainloader_l
 
 def test(net, criterion, trainloader_l):
-    net.eval()
+    #net.eval() # to not cancel BN
    
     correct = 0
     total = 0
