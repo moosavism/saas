@@ -1,6 +1,14 @@
-
-from torch.utils.data import DataLoader
+import torch
 import torchvision
+import torchvision.transforms as transforms
+from torch.utils.data import DataLoader
+from torch.autograd import Variable
+import torch.nn as nn
+import numpy as np
+
+logsoft = nn.LogSoftmax()
+
+
 class CIFAR10(torchvision.datasets.CIFAR10):
     def __len__(self):
         if self.train:
@@ -44,8 +52,8 @@ def noaug_cifar10():
     return transform_train, transform_test
 
 
-def get_loaders_cifar(nb_labelled, dataset, batch_size):
-        
+def get_loaders_cifar(nb_labelled, dataset, batch_size, noise_rat):
+    nb_class = 10
     transform_train, transform_test = noaug_cifar10()
     trainset_l = CIFAR10(root='./data', train=True, download=True, transform=transform_train)
 
@@ -55,7 +63,8 @@ def get_loaders_cifar(nb_labelled, dataset, batch_size):
     num_noise_label = int(nb_labelled*noise_rat)
     print (num_noise_label)
     print (trainset_l.train_labels[0:num_noise_label])
-    trainset_l.train_labels[0:num_noise_label] = np.random.randint(nb_class, size=num_noise_label)
+    trainset_l.train_labels[0:num_noise_label] = \
+    np.random.randint(nb_class, size=num_noise_label)
     print (trainset_l.train_labels[0:num_noise_label])
     
     print (trainset_l.train_data.shape, len(trainset_l.train_labels))
