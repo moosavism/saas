@@ -41,7 +41,7 @@ for i in range(3): # number of trainings to average over per each noise ratio
 		losses = train_on_noisy(noise_rat)
 
 		# check if .npy file created:
-		logs = np.load(file_name) if os.path.exists(file_name) else {}
+		logs = np.load(file_name)[()] if os.path.exists(file_name) else {}
 		  
 		# update the logs
 		key = str(noise_rat)
