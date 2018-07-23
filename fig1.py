@@ -32,7 +32,7 @@ for i, key in enumerate(logs.keys()):
     plt.xlabel('Epoch', fontsize=font)
     legends.append('Label corruption=%s' % key)
 plt.legend(legends, loc='best', fontsize=font)
-plt.xlim(first_ep, last-1)
+plt.xlim(first_ep+1, last_ep-1)
 plt.ylim(0.1, 2.5)
 ax.grid(color='gray', linestyle='dashdot', linewidth=1)
 fig.savefig('random_loss.png')
