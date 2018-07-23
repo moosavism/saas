@@ -18,7 +18,7 @@ print (logs)
 fig = plt.figure()
 ax = plt.subplot(111)
 legends = []
-first_ep = 1
+first_ep = 0
 last_ep = 30
 for i, key in enumerate(logs.keys()):
     print(key)
