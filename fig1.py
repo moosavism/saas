@@ -18,7 +18,7 @@ print (logs)
 fig = plt.figure()
 ax = plt.subplot(111)
 legends = []
-last = 30
+last = 50
 for i, key in enumerate(logs.keys()):
     print(key)
 #    ax.errorbar(np.arange(0, last), np.array(loss[0:last]),loss_std[i][0:last], \
