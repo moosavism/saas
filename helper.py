@@ -84,7 +84,8 @@ def test(net, criterion, trainloader_l):
         outputs = net(inputs)
         outputs = logsoft(outputs)
         loss = criterion(outputs, targets)
-
+        
+        print(loss.data.cpu().numpy())
         test_loss += loss.data.cpu().numpy()[0]
         _, predicted = torch.max(outputs.data, 1)
         total += targets.size(0)
