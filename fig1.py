@@ -1,5 +1,6 @@
 import numpy as np
 from matplotlib import pyplot as plt
+matplotlib.use('agg')
 plt.close("all")
 
 # plot losses_all
