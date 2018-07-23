@@ -29,7 +29,7 @@ def train_on_noisy(noise_rat=1.0, num_epochs=50, nb_labelled = 50000, batch_size
 		_, loss = train_w(net_w, optimizer_w, nll_loss, trainloader_l)
 		losses.append(loss)
 		print ("noise_rat=%f, epoch=%d, time=%f, loss=%f" % \
-			(noise_rat, epoch, time.time()-st_time), loss)
+			(noise_rat, epoch, time.time()-st_time, loss))
 		print (losses)
 	return losses
 
