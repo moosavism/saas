@@ -1,3 +1,6 @@
+
+from torch.utils.data import DataLoader
+import torchvision
 class CIFAR10(torchvision.datasets.CIFAR10):
     def __len__(self):
         if self.train:
@@ -5,7 +8,6 @@ class CIFAR10(torchvision.datasets.CIFAR10):
         else:
             return len(self.test_data)
 
-from torch.utils.data import DataLoader
 
 def train_w(net, optimizer, criterion, trainloader, stop_nb=10**7):
     net.train()
