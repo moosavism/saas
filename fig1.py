@@ -26,7 +26,7 @@ for i, key in enumerate(logs.keys()):
 #    plt.fill_between(np.arange(0, last), np.array(loss[0:last])-\
 #                     loss_std[i][0:last], np.array(loss[0:last])+\
 #                     loss_std[i][0:last], color=colors[i], alpha=0.1)
-    ax.plot(logs[key][0])
+    ax.plot(logs[key])
     plt.ylabel('Training loss', fontsize=font)
     plt.xlabel('Epoch', fontsize=font)
     legends.append('Label corruption=%s' % key)
