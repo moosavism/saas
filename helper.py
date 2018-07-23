@@ -41,13 +41,15 @@ def train_w(net, optimizer, criterion, trainloader, stop_nb=10**7):
 
     return 100.*correct/total, train_loss/(batch_idx+1)
 
-def noaug_cifar10():             
+def noaug_cifar10():
     transform_train = transforms.Compose([
         transforms.ToTensor(),
+       transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
     ])
 
     transform_test = transforms.Compose([
         transforms.ToTensor(),
+       transforms.Normalize((0.4914, 0.4822, 0.4465), (0.2023, 0.1994, 0.2010)),
     ])
     return transform_train, transform_test
 
