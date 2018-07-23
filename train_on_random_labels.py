@@ -51,6 +51,6 @@ for i in range(3): # number of trainings to average over per each noise ratio
 			logs.update({key:losses})
 		  
 		# save to .npy file:
-		logs = np.save('file_name', logs)
+		logs = np.save(file_name, logs)
 
 
