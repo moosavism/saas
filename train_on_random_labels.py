@@ -37,7 +37,7 @@ def train_on_noisy(noise_rat=1.0, num_epochs=50, nb_labelled = 50000, batch_size
 file_name = "training_losses.npy"
 losses_all = []
 for i in range(3): # number of trainings to average over per each noise ratio 
-	for noise_rat in [1.0, 0.75, 0.5, 0.25, 0.0]:
+	for noise_rat in [0.0, 0.25, 0.5, 0.75, 1.0]:
 		losses = train_on_noisy(noise_rat)
 
 		# check if .npy file created:
