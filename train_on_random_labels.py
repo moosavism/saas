@@ -47,10 +47,10 @@ for i in range(5): # number of trainings to average over per each noise ratio
 		  
 		# update the logs
 		key = str(noise_rat)
-	    if key in dict.keys():
+		if key in dict.keys():
 			logs[key].append(losses)
 		else:
-		    logs.update({key:losses})
+			logs.update({key:losses})
 		  
 		# save to .npy file:
 		logs = np.save('file_name', data)
