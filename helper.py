@@ -34,7 +34,7 @@ def train_w(net, optimizer, criterion, trainloader, stop_nb=10**7):
         loss.backward()
         optimizer.step()
 
-        train_loss += loss.data[0]
+        train_loss += loss.data.numpy()[0]
         confs, predicted = torch.max(outputs.data, 1)
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
@@ -85,7 +85,7 @@ def test(net, criterion, trainloader_l):
         outputs = logsoft(outputs)
         loss = criterion(outputs, targets)
 
-        test_loss += loss.data[0]
+        test_loss += loss.data.numpy()[0]
         _, predicted = torch.max(outputs.data, 1)
         total += targets.size(0)
         correct += predicted.eq(targets.data).cpu().sum()
